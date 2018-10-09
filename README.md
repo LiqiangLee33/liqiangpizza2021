@@ -14,7 +14,6 @@ Marking
 |spelling and grammar|10|
 |on time|10|
 
-The haunted house project is due as a zip of your project in the assignments folder on Sept. 30 by 11:59 pm.
 
 
 
