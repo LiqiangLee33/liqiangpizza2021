@@ -17,11 +17,17 @@ app.post("/sms", (req, res) =>{
     let sFrom = req.body.From;
     if(!oGames.hasOwnProperty(sFrom)){
         oGames[sFrom] = new Game();
-    }    
-    let sReply = oGames[sFrom].makeAMove(req.body.Body);
-
-    res.end("<Response><Message>" + 
-    sReply + "</Message></Response>");
+    }
+    let sMessage = req.body.Body|| req.body.body;
+    let aReply = oGames[sFrom].makeAMove(sMessage);
+    res.setHeader('content-type', 'text/xml');
+    let sResponse = "<Response>";
+    for(let n = 0; n < aReply.length; n++){
+        sResponse += "<Message>";
+        sResponse += aReply[n];
+        sResponse += "</Message>";
+    }
+    res.end(sResponse + "</Response>");
 
 });
 

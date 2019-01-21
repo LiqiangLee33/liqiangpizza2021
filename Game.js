@@ -27,6 +27,6 @@ export default class Game{
                 this.stateCur = GameState.FLAT;
                 break;
         }
-        return(sReply);
+        return([sReply]);
     }
 }
