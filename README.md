@@ -13,7 +13,7 @@ Marking
 |---|---|
 |get a game or choose your own adventure in es6| 50|
 |multiplayer - each person plays their own game against the bot.| 10|
-|story elements or states|1 each up to 20|
+|count case and if statements|2/3 each up to 30|
 |spelling and grammar|10|
 |on time|10|
 
