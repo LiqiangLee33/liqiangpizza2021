@@ -14,7 +14,7 @@ app.get("/users/:uname", (req, res) => {
 
 let oGames = {};
 app.post("/sms", (req, res) =>{
-    let sFrom = req.body.From;
+    let sFrom = req.body.From || req.body.from;
     if(!oGames.hasOwnProperty(sFrom)){
         oGames[sFrom] = new Game();
     }
