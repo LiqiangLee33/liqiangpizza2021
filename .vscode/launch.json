@@ -8,8 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "args": ["${file}"],
-            "program": "${workspaceRoot}/register.js",
+            "program": "${file}",
             "console":"integratedTerminal"
         }
     ]

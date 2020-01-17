@@ -1,6 +1,6 @@
-import express from 'express';
-import bodyParser  from "body-parser";
-import OverAndUnder  from "./OverAndUnder";
+const express = require('express');
+const bodyParser = require("body-parser");
+const OverAndUnder = require("./OverAndUnder");
 
 // Create a new express application instance
 const app = express();

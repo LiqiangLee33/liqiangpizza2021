@@ -1,5 +1,5 @@
 
-export default class OverAndUnder{
+module.exports = class OverAndUnder{
     makeANumber(){
         this.nComputer = Math.ceil(Math.random() * 100);
         this.nTries = 0;
