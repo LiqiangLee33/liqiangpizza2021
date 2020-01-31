@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require("body-parser");
-const OverAndUnder = require("./OverAndUnder");
+const Game = require("./Game");
 
 // Create a new express application instance
 const app = express();
@@ -16,20 +16,19 @@ let oGames = {};
 app.post("/sms", (req, res) =>{
     let sFrom = req.body.From || req.body.from;
     if(!oGames.hasOwnProperty(sFrom)){
-        oGames[sFrom] = new OverAndUnder();
+        oGames[sFrom] = new Game();
     }
     let sMessage = req.body.Body|| req.body.body;
-    oGames[sFrom].makeAMove(sMessage, (aReply) =>{
-        res.setHeader('content-type', 'text/xml');
-        let sResponse = "<Response>";
-        for(let n = 0; n < aReply.length; n++){
-            sResponse += "<Message>";
-            sResponse += aReply[n];
-            sResponse += "</Message>";
-        }
-        res.end(sResponse + "</Response>");
+    let aReply = oGames[sFrom].makeAMove(sMessage);
+    res.setHeader('content-type', 'text/xml');
+    let sResponse = "<Response>";
+    for(let n = 0; n < aReply.length; n++){
+        sResponse += "<Message>";
+        sResponse += aReply[n];
+        sResponse += "</Message>";
+    }
+    res.end(sResponse + "</Response>");
     
-    });
 
 });
 
