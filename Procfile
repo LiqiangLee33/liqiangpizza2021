@@ -1,1 +1,1 @@
-web: node register.js "./index.js"
+web: node ./index.js
