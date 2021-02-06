@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require("body-parser");
+const util = require('util');
 const ShwarmaOrder = require("./assignment1Shwarma");
 
 // Create a new express application instance
@@ -14,7 +15,7 @@ app.get("/payment/:phone", (req, res) => {
 
 app.get("/test", (req, res) => {
     res.setHeader('content-type', 'application/json');
-    res.end(JSON.stringify(req));
+    res.end(util.inspect(req));
 });
 
 let oOrders = {};
