@@ -14,7 +14,7 @@ app.get("/payment/:phone", (req, res) => {
 });
 
 app.get("/test", (req, res) => {
-    res.setHeader('content-type', 'application/json');
+    res.setHeader('content-type', 'text/plain');
     res.end(util.inspect(req));
 });
 
@@ -22,7 +22,7 @@ let oOrders = {};
 app.post("/sms", (req, res) =>{
     let sFrom = req.body.From || req.body.from;
     if(!oOrders.hasOwnProperty(sFrom)){
-        let sUrl = `${req.headers['X-Forwarded-Proto']|| req.protocol}://${req.headers['X-Forwarded-Host']||req.headers.host}${req.baseUrl}`;
+        let sUrl = `${req.headers['x-forwarded-proto']|| req.protocol}://${req.headers['x-forwarded-host']||req.headers.host}${req.baseUrl}`;
         oOrders[sFrom] = new ShwarmaOrder(sFrom, sUrl);
     }
     let sMessage = req.body.Body|| req.body.body;
