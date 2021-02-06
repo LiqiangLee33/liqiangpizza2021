@@ -47,7 +47,8 @@ module.exports = class ShwarmaOrder extends Order{
                 let d = new Date(); 
                 d.setMinutes(d.getMinutes() + 20);
                 aReturn.push(`Please pick it up at ${d.toTimeString()}`);
-                aReturn.push(`Please pay for your order here <a href="${this.sUrl}/payment/${this.sNumber}/" target="_blank">${this.sUrl}/payment/${this.sNumber}/</a>`)
+                aReturn.push(`Please pay for your order here`);
+                aReturn.push(`${this.sUrl}/payment/${this.sNumber}/`);
                 break;
         }
         return aReturn;
