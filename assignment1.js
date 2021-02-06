@@ -12,6 +12,11 @@ app.get("/payment/:phone", (req, res) => {
     res.end("Hello " + req.params.phone);
 });
 
+app.get("/test", (req, res) => {
+    res.setHeader('content-type', 'application/json');
+    res.end(JSON.stringify(req));
+});
+
 let oOrders = {};
 app.post("/sms", (req, res) =>{
     let sFrom = req.body.From || req.body.from;
