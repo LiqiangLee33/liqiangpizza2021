@@ -1,1 +1,1 @@
-web: node ./index.js
+web: node ./assignment1.js

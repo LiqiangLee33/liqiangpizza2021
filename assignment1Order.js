@@ -1,5 +1,7 @@
 module.exports = class Order{
-    constructor(){
+    constructor(sNumber, sUrl){
+        this.sUrl = sUrl
+        this.sNumber = sNumber
         this.bDone = false;
     }
     isDone(bDone){

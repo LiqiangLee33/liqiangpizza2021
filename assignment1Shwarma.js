@@ -8,8 +8,8 @@ const OrderState = Object.freeze({
 });
 
 module.exports = class ShwarmaOrder extends Order{
-    constructor(){
-        super();
+    constructor(sNumber, sUrl){
+        super(sNumber, sUrl);
         this.stateCur = OrderState.WELCOMING;
         this.sSize = "";
         this.sToppings = "";
@@ -47,6 +47,7 @@ module.exports = class ShwarmaOrder extends Order{
                 let d = new Date(); 
                 d.setMinutes(d.getMinutes() + 20);
                 aReturn.push(`Please pick it up at ${d.toTimeString()}`);
+                aReturn.push(`Please pay for your order here <a href="${this.sUrl}/payment/${this.sNumber}/" target="_blank">${this.sUrl}/payment/${this.sNumber}/</a>`)
                 break;
         }
         return aReturn;
