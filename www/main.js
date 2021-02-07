@@ -83,6 +83,7 @@ function getNextStory(msg){
             data[i] = data[i].replace(/\<(\/)?Message\>/gi, '');
             data[i] = data[i].replace(/\<(\/)?Response\>/gi, '');
             data[i] = data[i].replace(/([\r\n]+|\%0a+)/g, '<br>');
+            data[i] = linkifyHtml(data[i], {target: "_blank"});
 
             // pass strings around
             History.add(data[i], 'server');

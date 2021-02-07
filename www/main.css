@@ -215,7 +215,10 @@ main{
     border-bottom-right-radius: 15px;
 }
 
-a{
+li.from-server p{
+    overflow: hidden;
+}
+li.from-server p a{
     color: white;
     text-decoration: underline;
 }
