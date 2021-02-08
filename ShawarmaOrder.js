@@ -1,4 +1,4 @@
-const Order = require("./assignment1Order");
+const Order = require("./Order");
 
 const OrderState = Object.freeze({
     WELCOMING:   Symbol("welcoming"),
@@ -59,8 +59,9 @@ module.exports = class ShwarmaOrder extends Order{
         return aReturn;
     }
     renderForm(){
-        const sClientID = process.env.SB_CLIENT_ID || 'no client id'
-        return(`
+      // your client id should be kept private
+      const sClientID = process.env.SB_CLIENT_ID || 'put your client id here for testing ... Make sure that you delete it before committing'
+      return(`
       <!DOCTYPE html>
   
       <head>
