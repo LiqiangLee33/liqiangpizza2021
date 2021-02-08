@@ -23,7 +23,7 @@ let oOrders = {};
 app.post("/payment/:phone", (req, res) => {
   sFrom = req.params.phone;
   oOrders[sFrom].notify("thank you for your order ... notification");
-//  delete oOrders[sFrom];
+  delete oOrders[sFrom];
   res.end("ok");
 });
 
