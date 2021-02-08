@@ -19,6 +19,18 @@ $(function(){
 
     // auto focus to the message input, save a click yay
     $('#msg').focus();
+    // socket stuff
+    const socket = io(document.URL);
+    const data = {
+        from: phone
+    };
+    socket.emit('receive message', data);
+    socket.on('receive message', (data)=> {
+        // pass strings around
+        History.add(data.message, 'server');
+        print(data.message, 'server');
+    });
+
 });
 
 /**
