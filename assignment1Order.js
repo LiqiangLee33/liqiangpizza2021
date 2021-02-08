@@ -1,6 +1,7 @@
 module.exports = class Order{
-    constructor(sNumber){
-        this.sNumber = sNumber
+    constructor(sNumber, sUrl){
+        this.sNumber = sNumber;
+        this.sUrl = sUrl;
         this.bDone = false;
     }
     isDone(bDone){
@@ -8,18 +9,5 @@ module.exports = class Order{
             this.bDone = bDone;
         }
         return this.bDone;
-    }
-    setSocket(oSocket){
-        this.oSocket = oSocket;
-    }
-    setUrl(sUrl){
-        this.sUrl = sUrl
-    }
-    notify(sMessage){
-        const data = {
-            message: sMessage
-        };
-        this.oSocket.emit('receive message', data);
-
     }
 }
