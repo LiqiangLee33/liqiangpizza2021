@@ -25,7 +25,7 @@ let oOrders = {};
 app.post("/payment/:phone", (req, res) => {
   // this happens when the order is complete
   sFrom = req.params.phone;
-  const aReply = oOrders[sFrom].handleInput("thank you for your order ... notification");
+  const aReply = oOrders[sFrom].handleInput(req.body);
   const oSocket = oSockets[sFrom];
   // send messages out of turn
   for (let n = 0; n < aReply.length; n++) {

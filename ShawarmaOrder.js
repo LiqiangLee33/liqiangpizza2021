@@ -50,8 +50,9 @@ module.exports = class ShwarmaOrder extends Order{
                 aReturn.push(`${this.sUrl}/payment/${this.sNumber}/`);
                 break;
             case OrderState.PAYMENT:
+                console.log(sInput);
                 this.isDone(true);
-                let d = new Date(); 
+                let d = new Date();
                 d.setMinutes(d.getMinutes() + 20);
                 aReturn.push(`Your order will be delivered at ${d.toTimeString()}`);
                 break;
@@ -93,7 +94,7 @@ module.exports = class ShwarmaOrder extends Order{
                 // This function captures the funds from the transaction.
                 return actions.order.capture().then(function(details) {
                   // This function shows a transaction success message to your buyer.
-                  $.post(".",()=>{
+                  $.post(".", details, ()=>{
                     window.open("", "_self");
                     window.close(); 
                   });
